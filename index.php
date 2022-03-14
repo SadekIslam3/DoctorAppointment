@@ -19,7 +19,29 @@
                 </div>
                 <div class="col-md-6">
                   <div class="img-box">
-                    <img src="images/istockphoto.jpg" alt="">
+                    <img src="images/backround.jpg" alt="">
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          <div class="carousel-item ">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="detail-box">
+                    <div>
+                      <h1>
+                        Doctor Appointment System
+                      </h1>
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="images/backround.jpg" alt="">
                   </div>
                 </div>
               </div>
@@ -40,40 +62,57 @@
                 </div>
                 <div class="col-md-6">
                   <div class="img-box">
-                    <img src="images/istockphoto.jpg" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item ">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="detail-box">
-                    <div>
-                      <h1>
-                        Doctor Appointment System
-                      </h1>
-                      
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="img-box">
-                    <img src="images/istockphoto.jpg" alt="">
+                    <img src="images/backround.jpg" alt="">
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <ol class="carousel-indicators">
+        <!-- <ol class="carousel-indicators" style="margin-top: 30px;">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
+        </ol> -->
       </div>
+      <!-- <div id="carouselExampleIndicators" class="carousel slide mx-auto" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+  <div class="carousel-item active">
+    <img src="images/backround.jpg" alt="...">
+    <div class="carousel-caption d-none d-md-block">
+      <h5>Sadek</h5>
+      <p>...</p>
+    </div>
+ </div>
+ <div class="carousel-item">
+  <img src="images/backround.jpg" alt="...">
+  <div class="carousel-caption d-none d-md-block">
+    <h5>...</h5>
+    <p>...</p>
+  </div>
+</div>
+<div class="carousel-item">
+  <img src="images/backround.jpg" alt="...">
+  <div class="carousel-caption d-none d-md-block">
+    <h5>...</h5>
+    <p>...</p>
+  </div>
+</div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
     </section>
     <!-- end slider section -->
   </div>
@@ -99,15 +138,15 @@
             </a>
           </div>
         </div>
-		<div class="col-md-4 mx-auto">
-          <div class="box">
-            <img src="images/Medicine.png" alt="" />
-            <a href="#">
-              Medicine
-            </a>
-          </div>
-        </div>
-		<div class="col-md-4 mx-auto">
+            <div class="col-md-4 mx-auto">
+              <div class="box">
+                <img src="images/Medicine.png" alt="" />
+                <a href="#">
+                  Medicine
+                </a>
+              </div>
+            </div>
+		    <div class="col-md-4 mx-auto">
           <div class="box">
             <img src="images/Newborn & Child Disease.jpg" alt="" />
             <a href="#">
@@ -115,8 +154,8 @@
             </a>
           </div>
         </div>
-		</div>
-		<div class="row">
+		
+	
         <div class="col-md-4 mx-auto">
           <div class="box">
             <img src="images/Surgery.png" alt="" />
@@ -125,7 +164,7 @@
             </a>
           </div>
         </div>
-		<div class="col-md-4 mx-auto">
+		    <div class="col-md-4 mx-auto">
           <div class="box">
             <img src="images/Pathologist.png" alt="" />
             <a href="#">
@@ -141,10 +180,10 @@
             </a>
           </div>
         </div>
-		</div>
-		<div class="row">
 		
-		   <div class="col-md-4 mx-auto">
+		
+		
+		    <div class="col-md-4 mx-auto">
           <div class="box">
             <img src="images/Orthopaedics.png" alt="" />
             <a href="#">
@@ -160,7 +199,7 @@
             </a>
           </div>
         </div>
-		<div class="col-md-4 mx-auto">
+		    <div class="col-md-4 mx-auto">
           <div class="box">
             <img src="images/s5.png" alt="" />
             <a href="#">
@@ -169,9 +208,9 @@
           </div>
         </div>
 	
-	   </div>
-	   <div class="row">
-		  <div class="col-md-4 mx-auto">
+
+	   
+		    <div class="col-md-4 mx-auto">
           <div class="box">
             <img src="images/Psychology.png" alt="" />
             <a href="#">
@@ -187,7 +226,7 @@
             </a>
           </div>
         </div>
-		<div class="col-md-4 mx-auto">
+		    <div class="col-md-4 mx-auto">
           <div class="box">
             <img src="images/Skin.png" alt="" />
             <a href="#">
@@ -195,18 +234,8 @@
             </a>
           </div>
         </div>
-	   </div>
-	   <div class="row">
-		
-		<div class="col-md-4 mx-auto">
-          <div class="box">
-            <img src="images/Diabetes.png" alt="" />
-            <a href="#">
-               Diabetes
-            </a>
-          </div>
-        </div>
-	   </div>
+	    </div>
+	   
     
     </div>
   </section>

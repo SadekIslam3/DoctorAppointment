@@ -9,6 +9,7 @@ body {
   padding: 90px 0;
 }
 
+
 .layout_padding2 {
   padding: 45px 0;
 }
@@ -473,6 +474,7 @@ a:focus {
   background-size: cover;
   color: #000000;
 }
+
 
 .book_section form {
   padding: 35px 45px;

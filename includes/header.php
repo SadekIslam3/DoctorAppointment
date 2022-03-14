@@ -50,9 +50,6 @@
               <li class="nav-item">
                 <a class="nav-link" href="catagories.php"> Catagories </a>
               </li>
-			        <li class="nav-item">
-                <a class="nav-link" href="doctorinfo.php"> Doctor </a>
-              </li>
               <li class="nav-item">
                 <a class="nav-link" href="appointment.php"> Appointment </a>
               </li>
@@ -60,7 +57,7 @@
                 <a class="nav-link" href="appointment.php"> Search </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="appointment.php"> SingIn </a>
+                <a class="nav-link" href="registerform.php"> Register </a>
               </li>
             </ul>
             

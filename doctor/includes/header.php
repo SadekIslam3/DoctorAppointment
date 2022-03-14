@@ -6,9 +6,9 @@
     {
         //User is not logged in
         //Redirect to login page with message
-        $_SESSION['no-login-message'] = "<div class='error text-center'>Please login to access Admin Panel.</div>";
+        $_SESSION['no-login-message'] = "<div class='error text-center'>Please login to access Doctor Panel.</div>";
         //Redirect to Login Page
-        header('location:'.SITEURL.'admin/login.php');
+        header('location:'.SITEURL.'doctor/login.php');
     }
 ?>
 <!DOCTYPE html>
@@ -28,12 +28,9 @@
          <div class="wrapper">
             <ul>
                 <li><a href="index.php">Home</a></li>
-                <li><a href="admin.php">Admin</a></li>
-                <li><a href="user.php">User</a></li>
-                <li><a href="catagory.php">Catagory</a></li>
-                <li><a href="doctor.php">Doctor</a></li>
+                <li><a href="doctor_list.php">Doctor</a></li>
                 <li><a href="#">Patient</a></li>
-                <li><a href="appointment.php">Appointment</a></li>               
+                <li><a href="#">Appointment</a></li>               
                 <li><a href="logout.php">Log Out</a></li>
                     
             </ul>

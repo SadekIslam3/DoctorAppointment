@@ -2,7 +2,7 @@
 
     <div class="manage">
         <div class = "wrapper">
-            <h1>Admin Dashboard</h1>
+            <h1>Doctor Dashboard</h1>
             <br>
             <br>
             <?php 

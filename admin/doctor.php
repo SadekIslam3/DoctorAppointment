@@ -2,7 +2,7 @@
 
 <div class="manage">
     <div class = "wrapper">
-        <h1>Doctor</h1>
+        <h1>Doctor Info</h1>
         <br>
         <br>
         <?php
@@ -18,7 +18,7 @@
                 unset($_SESSION['upload']);
             }
         ?>
-        <a href="add_doctor.php">Add Doctor</a>
+        <a href="add_doctor.php" class="btn-add">Add Doctor</a>
         <br>
         <br>
         <table class="tbl-full">
@@ -79,8 +79,8 @@
                                 <td><?php echo $room_no; ?></td>
 
                                 <td>
-                                    <a href="<?php echo SITEURL; ?>admin/update-doctor.php?id=<?php echo $doctor_id; ?>" class="btn-update">Update Category</a>
-                                    <a href="<?php echo SITEURL; ?>admin/delete-doctor.php?id=<?php echo $$doctor_id; ?>" class="btn-delete">Delete Category</a>
+                                    <a href="<?php echo SITEURL; ?>admin/update-doctor.php?id=<?php echo $doctor_id; ?>" class="btn-update">Update Doctor</a>
+                                    <a href="<?php echo SITEURL; ?>admin/delete-doctor.php?id=<?php echo $$doctor_id; ?>" class="btn-delete">Delete Doctor</a>
                                 </td>
                             </tr>
 
@@ -95,7 +95,7 @@
                         ?>
 
                         <tr>
-                            <td colspan="6"><div class="error">No Category Added.</div></td>
+                            <td colspan="6"><div class="error">No Doctor Added.</div></td>
                         </tr>
 
                         <?php

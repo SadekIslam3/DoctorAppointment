@@ -1,21 +1,20 @@
 <?php include('includes/header.php'); ?>
 <div class="manage">
         <div class = "wrapper">
-            <h1>Admin Control</h1>
+            <h1>Doctor Control</h1>
             <br>
             <br>
             <!-- Button to Add Admin -->
-            <a href="add_admin.php" class="btn-add">Add Admin</a>
+            <a href="doctor_add.php" class="btn-add">Add Doctor</a>
             <br>
             <br>
             <br>
 
-            <table class="tbl-full tbl tr th">
+            <table class="tbl-full">
                 <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Contuct Number</th>
-                    <th>Email</th>
+                    <th>Doctor ID</th>
+                    <th>Doctor Name</th>
+                    <th>Department Name</th>
                     <th>Username</th>
                     <th>Password</th>
                     <th>update/delete</th>
@@ -24,7 +23,7 @@
                 <?php 
 
                     //Query to Get all doctors from Database
-                    $sql = "SELECT * FROM admin";
+                    $sql = "SELECT * FROM doctorpanel";
 
                     //Execute Query
                     $res = mysqli_query($con, $sql);
@@ -39,19 +38,17 @@
                         //get the data and display
                         while($row=mysqli_fetch_assoc($res))
                         {
-                            $id = $row['id'];
-                            $name = $row['name'];
-                            $number = $row['number'];
-                            $email = $row['email'];
+                            $doctor_id = $row['doctor_id'];
+                            $doctor_name = $row['doctor_name'];
+                            $depart_name = $row['depart_name'];
                             $user_name = $row['user_name'];
                             $password = $row['password'];
 
                             ?>
                             <tr>
-                                <td><?php echo  $id; ?>. </td>
-                                <td><?php echo $name; ?></td>
-                                <td><?php echo $number; ?></td>
-                                <td><?php echo $email; ?></td>
+                                <td><?php echo  $doctor_id; ?>. </td>
+                                <td><?php echo $doctor_name; ?></td>
+                                <td><?php echo $depart_name; ?></td>
                                 <td><?php echo $user_name; ?></td>
                                 <td><?php echo $password; ?></td>
 
@@ -72,7 +69,7 @@
                         ?>
 
                         <tr>
-                            <td colspan="6"><div class="error">No  Admin.</div></td>
+                            <td colspan="6"><div class="error">No  Doctor.</div></td>
                         </tr>
 
                         <?php

@@ -1,3 +1,4 @@
+<?php include('data_con/database.php'); ?>
 <!DOCTYPE html>
 <html>
 
@@ -13,7 +14,7 @@
   <meta name="author" content="" />
   <link rel="shortcut icon" href="images/s4.png" type="image/x-icon">
 
-  <title>Sadek</title>
+  <title>Doctor Appointment System</title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -49,9 +50,6 @@
               <li class="nav-item">
                 <a class="nav-link" href="catagories.php"> Catagories </a>
               </li>
-			        <li class="nav-item">
-                <a class="nav-link" href="doctorinfo.php"> Doctor </a>
-              </li>
               <li class="nav-item active">
                 <a class="nav-link" href="appointment.php"> Appointment </a>
               </li>
@@ -59,7 +57,7 @@
                 <a class="nav-link" href="appointment.php"> Search </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="appointment.php"> SingIn </a>
+                <a class="nav-link" href="registerform.php"> Register </a>
               </li>
             </ul>
             
@@ -76,7 +74,6 @@
   <div class="container">
       <div class="heading_container heading_center">
         <h2>
-          <span class="design_dot"></span>
           Appointment Section
         </h2>
       </div>
@@ -89,25 +86,7 @@
               <span class="design_dot"></span>
               APPOINTMENT SET
             </h4>
-            <div class="form-row ">
-			  <div class="form-group col-lg-4">
-                <label for="inpuIdNo">ID NO </label>
-                <input type="text" class="form-control" id="inputid" placeholder="">
-              </div>
-              <div class="form-group col-lg-4">
-                <label for="inputPatientName">Patient Name </label>
-                <input type="text" class="form-control" id="inputPatientName" placeholder="">
-              </div>
-			  <div class="form-group col-lg-4">
-                <label for="inputPatientAddress">Patient Address </label>
-                <input type="text" class="form-control" id="inputPatientName" placeholder="">
-              </div>
-			  </div>
 			  <div class="form-row ">
-				  <div class="form-group col-lg-4">
-					<label for="inputPhoneNo">Phone No</label>
-					<input type="text" class="form-control" id="inputPhone" placeholder="">
-				  </div>
 				  <div class="form-group col-lg-4">
 					<label for="inputSymptoms">Symptoms</label>
 					<input type="text" class="form-control" id="inputSymptoms" placeholder="">
@@ -138,10 +117,15 @@
 					  </span>
 					</div>
 				  </div>
-              </div>
+          </div>
+        <div class="form-row ">
 				<div class="btn-box">
 				  <button type="submit" class="btn ">Submit Now</button>
 				</div>
+        <div class="btn-box" style="margin-left: 10px;">
+				  <button type="submit" class="btn ">View Now</button>
+				</div>
+        </div>
           </form>
         </div>
       </div>
@@ -167,10 +151,13 @@
                 <a class="nav-link" href="catagories.php"> Catagories </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="doctorinfo.php"> Doctor </a>
+                <a class="nav-link" href="appointment.php"> Appointment </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="appointment.php"> Appointment </a>
+                <a class="nav-link" href="appointment.php"> Search </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="registerform.php"> Register </a>
               </li>
             </ul>
           </div>

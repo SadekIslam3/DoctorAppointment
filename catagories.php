@@ -37,6 +37,7 @@
 
                             ?>
       
+        
         <div class=" mx-auto">
           <div class="box">
           <?php  
@@ -53,9 +54,8 @@
                                             //DIsplay the MEssage
                                             echo "<div class='error'>Image not Added.</div>";
                                         }
-                                        ?>
-            <a href="<?php echo SITEURL;?>doctor.php?category_id=<?php echo $category_id?>"><?php echo $category_name; ?></a>
-            
+                                        ?>                            
+            <a href="<?php echo SITEURL;?>doctor.php?category_id=<?php echo $category_id?>"><?php echo $category_name; ?></a> 
             <?php
 
                         }

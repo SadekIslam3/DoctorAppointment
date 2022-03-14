@@ -2,7 +2,7 @@
 
 <div class="manage">
     <div class = "wrapper">
-        <h1>Category</h1>
+        <h1>Category View</h1>
         <br>
         <br>
         <?php

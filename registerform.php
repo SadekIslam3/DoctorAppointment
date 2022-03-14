@@ -1,3 +1,76 @@
+<?php include('data_con/database.php'); ?>
+<?php
+    if(isset($_POST['submit'])){
+        //data from form
+        $full_name = $_POST['full_name'];
+        $address = $_POST['address'];
+        $phone_no = $_POST['phone_no'];
+        $email_name = $_POST['email_name'];
+        $password = $_POST['password'];
+        $age = $_POST['age'];
+		    $gender = $_POST['gender'];
+
+        
+
+        $errors = array();
+
+        $e = "SELECT email FROM user WHERE email_name = '$email_name' ";
+        $ee = mysqli_query($con, $e);
+        
+
+        if(empty($email_name)){
+            $errors['e']= "email required";
+        }else if(mysqli_num_rows($ee)>0){
+            $errors['e']= "email exits";
+        }
+        if(empty($password)){
+            $errors['p']= "password required";
+        }
+		if(isset($_POST['gender']))
+        {
+            $gender = $_POST['gender'];
+        }
+        else if(isset($_POST['gender']))
+        {
+            $gender = $_POST['female'];
+        }
+		else 
+		{
+			$gender = "other";
+		}
+
+        //sql quary
+        if(count($errors)==0){
+          
+
+            $sql = "INSERT INTO user (`full_name`, `address`, `phone_no`, `email_name`, `password`, `age`,`gender`) 
+            VALUES ('$full_name','$address','$phone_no','$email_name','$password','$age','$gender')";
+            
+
+            $res = mysqli_query($con, $sql);
+
+            //Check whether data is inserted or not
+            if($res==TRUE){
+                    //Data Inserted
+                    //echo "Data Inserted";
+                    //Create a Session Variable to Display Message
+                    $_SESSION['add'] = "<div class='success'>User Added Successfully.</div>";
+                    //Redirect Page to Manage Admin
+                    header("location:".SITEURL.'login.php');
+            }
+            else
+            {
+                //FAiled to Insert DAta
+                //echo "Faile to Insert Data";
+                //Create a Session Variable to Display Message
+                $_SESSION['add'] = "<div class='error'>Failed to Add .</div>";
+                //Redirect Page to Add Admin
+                header("location:".SITEURL.'registerform.php');
+            }
+        }
+    }
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -29,6 +102,7 @@
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
 </head>
+
 <body class="sub_page">
   <div class="hero_area">
     <!-- header section strats -->
@@ -48,9 +122,6 @@
               <li class="nav-item">
                 <a class="nav-link" href="catagories.php"> Catagories </a>
               </li>
-			       <li class="nav-item">
-                <a class="nav-link" href="doctorinfo.php"> Doctor </a>
-              </li>
               <li class="nav-item active">
                 <a class="nav-link" href="appointment.php"> Appointment </a>
               </li>
@@ -58,7 +129,7 @@
                 <a class="nav-link" href="appointment.php"> Search </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="appointment.php"> SingIn </a>
+                <a class="nav-link" href="appointment.php"> Register </a>
               </li>
             </ul>
             
@@ -69,88 +140,71 @@
     <!-- end header section -->
   </div>
 
-   <!-- information section -->
+   <!-- registreation section -->
 
   <section class="book_section layout_padding">
   <div class="container">
       <div class="heading_container heading_center">
         <h2>
           <span class="design_dot"></span>
-          Doctor Section
+          Registeration Section
         </h2>
       </div>
     </div>
     <div class="container">
       <div class="row">
         <div class="col">
-          <form>
+          <form action="" method ="POST" >
             <h4>
               <span class="design_dot"></span>
-              DOCTOR INFORMATION
+              Registeration Form
             </h4>
             <div class="form-row ">
-			  <div class="form-group col-lg-4">
-                <label for="inputSlNo">SL NO </label>
-                <input type="text" class="form-control" id="inputid" placeholder="">
+			        <div class="form-group col-lg-4">
+                <label for="inpuName">Full Name</label>
+                <input type="text" class="form-control" name="full_name" placeholder="" required>
               </div>
-			  <div class="form-group col-lg-4">
-                <label for="inputDoctorName">Doctor's Name</label>
-				<input type="text" class="form-control" id="inputname" placeholder="">
-                
-              </div>
-              <div class="form-group col-lg-4">
-                <label for="inputDegree">Degree </label>
-                <input type="text" class="form-control" id="inputPatientName" placeholder="">
-              </div>
-              
-              <div class="form-group col-lg-4">
-                <label for="inputDepartmentName">Department's Name</label>
-                <select name="" class="form-control wide" id="inputDepartmentName">
-                  <option value="Normal distribution ">Cardiology </option>
-				  <option value="Normal distribution ">Medecine </option>
-                  <option value="Normal distribution ">Surgery </option>
-                  <option value="Normal distribution ">First Aid </option>
-                </select>
-              </div>
-			  <div class="form-group col-lg-4">
-                <label for="inputDesignation">Designation</label>
-                <input type="text" class="form-control" id="inputDesignation" placeholder="">
-              </div>
-			  <div class="form-group col-lg-4">
-                <label for="inputChamberName">Chamber Name</label>
-                <input type="text" class="form-control" id="inputChamberName" placeholder="">
-              </div>
+            <div class="form-group col-lg-4">
+                <label for="inputAddress">Address</label>
+                <input type="text" class="form-control" name="address" placeholder="" required>
             </div>
-            <div class="form-row ">
-              <div class="form-group col-lg-4">
-                <label for="inputDay">Day</label>
-                <input type="text" class="form-control" id="inputDay" placeholder="">
-              </div>
-              <div class="form-group col-lg-4">
-                <label for="inputTimeSchedule">Time Schedule</label>
-                <input type="text" class="form-control" id="inputSymptoms" placeholder="">
-              </div>
-			  <div class="form-group col-lg-4">
-                <label for="inputFloor">Floor No</label>
-                <input type="text" class="form-control" id="inputFloor" placeholder="">
-              </div>
+			      <div class="form-group col-lg-4">
+                <label for="inputPhoneNo">Phone no </label>
+                <input type="text" class="form-control" name="phone_no" placeholder="" required>
             </div>
-			<div class="form-row ">
-				<div class="form-group col-lg-4">
-					<label for="inputRoom">Room No</label>
-					<input type="text" class="form-control" id="inputRoom" placeholder="">
+			  </div>
+			  <div class="form-row ">
+				  <div class="form-group col-lg-4">
+					<label for="inputEmail">Email</label>
+					<input type="text" class="form-control" name="email_name" placeholder="">
 				  </div>
-			</div>
-            <div class="btn-box">
-              <button type="submit" class="btn ">Save Now</button>
-            </div>
-          </form>
+				  <div class="form-group col-lg-4">
+					<label for="inputPassword">Password</label>
+					<input type="text" class="form-control" name="password" placeholder="">
+				  </div>
+				  <div class="form-group col-lg-4">
+					<label for="inputAge">Your age</label>
+					<input type="text" class="form-control" name="age" placeholder="" required>
+				  </div>
+			  </div>
+			<div class="form-row ">
+              <p class="gender" style="font-size: 16px; font-weight: 800;">Gender : </p>
+		    <div class="radio_button">
+                <input type="radio" placeholder="Address" name="gender" value="male">Male
+                <input type="radio" placeholder="Address" name="gender" value="female">Female
+                <input type="radio" placeholder="Address" name="gender" value="other">Other
+	        </div>
+        </div>
+            <div class="input-group">
+				      <button type = "submit" name="submit" class="btn">Register</button>
+			      </div>
+      </form>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- end information section -->
+  <!-- end registreation section -->
 
   <!-- info section -->
   <section class="info_section layout_padding">

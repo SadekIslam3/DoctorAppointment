@@ -16,6 +16,10 @@
     
 		<div class="screen__content">
 			<form action=""  method="POST" class="login">
+            <div class="login__field">
+					<i class="login__icon fas fa-user"></i>
+					<input type="text" name ="category_name" class="login__input" placeholder="Department Name">
+				</div>
 				<div class="login__field">
 					<i class="login__icon fas fa-user"></i>
 					<input type="text" name ="user_name" class="login__input" placeholder="User name">
@@ -40,6 +44,7 @@
     {
         //Process for Login
         //1. Get the Data from Login form
+        $depart_name = $_POST['category_name'];
         $user_name = $_POST['user_name'];
         $password = $_POST['password'];
         //$username = mysqli_real_escape_string($conn, $_POST['username']);
@@ -48,7 +53,7 @@
         //$password = mysqli_real_escape_string($conn, $raw_password);
 
         //2. SQL to check whether the user with username and password exists or not
-        $sql = "SELECT * FROM admin WHERE user_name='$user_name' AND password='$password'";
+        $sql = "SELECT * FROM doctorpanel WHERE depart_name='$depart_name' AND user_name='$user_name' AND password='$password'";
 
         //3. Execute the Query
         $res = mysqli_query($con, $sql);

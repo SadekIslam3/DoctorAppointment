@@ -2,10 +2,12 @@
 
 <div class="manage">
     <div class = "wrapper">
-        <h1>Category</h1>
+        <h1>View Appointment</h1>
         <br>
         <br>
-        <a href="add_appointment.php">Add Appointment</a>
+        <a href="" class="btn-add">Update/Delete</a>
+        <br>
+        <br>
         <table class="tbl-full">
             <tr>
                 <th>ID</th>
@@ -16,7 +18,7 @@
                 <th>Doctor Name</th>
                 <th>Department Name</th>
                 <th>Choose Date</th
-                <th>Update/delete</th>
+               
             </tr>
         </table>
     </div>

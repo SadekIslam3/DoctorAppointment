@@ -15,10 +15,13 @@
                 <a class="nav-link" href="catagories.php"> catagories </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="doctorinfo.php"> Doctor </a>
+                <a class="nav-link" href="appointment.php"> Appointment </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="appointment.php"> Appointment </a>
+                <a class="nav-link" href="appointment.php"> Search </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="registerform.php"> Register </a>
               </li>
             </ul>
           </div>

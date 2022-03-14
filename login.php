@@ -1,7 +1,7 @@
 <head>
-    <?php include('../data_con/database.php'); ?>
+    <?php include('data_con/database.php'); ?>
 
-    <link rel="stylesheet" href="../css-backend/style1.css">
+    <link rel="stylesheet" href="css-backend/style1.css">
 </head>
 
 <div class="container">
@@ -18,7 +18,7 @@
 			<form action=""  method="POST" class="login">
 				<div class="login__field">
 					<i class="login__icon fas fa-user"></i>
-					<input type="text" name ="user_name" class="login__input" placeholder="User name">
+					<input type="text" name ="email_name" class="login__input" placeholder="Email">
 				</div>
 				<div class="login__field">
 					<i class="login__icon fas fa-lock"></i>
@@ -40,7 +40,7 @@
     {
         //Process for Login
         //1. Get the Data from Login form
-        $user_name = $_POST['user_name'];
+        $email_name = $_POST['email_name'];
         $password = $_POST['password'];
         //$username = mysqli_real_escape_string($conn, $_POST['username']);
         
@@ -48,7 +48,7 @@
         //$password = mysqli_real_escape_string($conn, $raw_password);
 
         //2. SQL to check whether the user with username and password exists or not
-        $sql = "SELECT * FROM admin WHERE user_name='$user_name' AND password='$password'";
+        $sql = "SELECT * FROM user WHERE email_name='$email_name' AND password='$password'";
 
         //3. Execute the Query
         $res = mysqli_query($con, $sql);
@@ -60,7 +60,7 @@
         {
             //User Available and Login Success
             $_SESSION['login'] = "<div class='success'>Login Successful.</div>";
-            $_SESSION['user_name'] = $user_name; //TO check whether the user is logged in or not and logout will unset it
+            $_SESSION['email_name'] = $email_name; //TO check whether the user is logged in or not and logout will unset it
 
             //Redirect to HOme Page/Dashboard
             echo "<script> window.open('index.php','_self')</script>";
@@ -70,7 +70,7 @@
             //User not Available and Login FAil
             $_SESSION['login'] = "<div class='error text-center'>Username or Password did not match.</div>";
             //Redirect to HOme Page/Dashboard
-            echo "<script> window.open('login.php','_self')</script>";
+            echo "<script> window.open('index.php','_self')</script>";
         }
 
 
