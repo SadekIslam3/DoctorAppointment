@@ -1,7 +1,7 @@
 <?php include('includes/header.php'); ?>
 <div class="manage">
     <div class = "wrapper">
-        <h1>Doctor Detail</h1>
+        <h1>Doctor Dashboard</h1>
         <br>
         <br>
 
@@ -40,7 +40,7 @@
 
                 <tr>
                     <td colspan="2">
-                        <input type="submit" name="submit" value="Add Admin" class="btn-update">
+                        <input type="submit" name="submit" value="Add Doctor" class="btn-update">
                     </td>
                 </tr>
             </table>

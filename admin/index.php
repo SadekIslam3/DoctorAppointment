@@ -59,7 +59,23 @@
 
                     <h1><?php echo $count3; ?></h1>
                     <br />
-                    Patients 
+                    Users  
+                </div>
+
+                <div class="colo-4 text-center">
+
+                    <?php 
+                        //Sql Query 
+                        $sql4 = "SELECT * FROM patient_appointment";
+                        //Execute Query
+                        $res4 = mysqli_query($con, $sql4);
+                        //Count Rows
+                        $count4 = mysqli_num_rows($res4);
+                    ?>
+
+                    <h1><?php echo $count4; ?></h1>
+                    <br />
+                    Appointments 
                 </div>
 
                 <div class="clearfix"></div>

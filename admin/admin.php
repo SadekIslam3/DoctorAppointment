@@ -10,7 +10,7 @@
             <br>
             <br>
 
-            <table class="tbl-full tbl tr th">
+            <table class="tbl-full ">
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
@@ -48,16 +48,16 @@
 
                             ?>
                             <tr>
-                                <td><?php echo  $id; ?>. </td>
-                                <td><?php echo $name; ?></td>
-                                <td><?php echo $number; ?></td>
-                                <td><?php echo $email; ?></td>
-                                <td><?php echo $user_name; ?></td>
-                                <td><?php echo $password; ?></td>
+                                <td style="width: 20px;text-align: center;"><?php echo  $id; ?>. </td>
+                                <td style="width: 80px; text-align: center;"><?php echo $name; ?></td>
+                                <td style="width: 130px; text-align: center;"><?php echo $number; ?></td>
+                                <td style="width: 130px; text-align: center;"><?php echo $email; ?></td>
+                                <td style="width: 130px; text-align: center;"><?php echo $user_name; ?></td>
+                                <td style="width: 150px; text-align: center;"><?php echo $password; ?></td>
 
-                                <td>
+                                <td style="width: 300px; padding-left: 80px; padding-top: 10px;">
                                     <a href="<?php echo SITEURL; ?>admin/update-admin.php?id=<?php echo $id; ?>" class="btn-update">Update Admin</a>
-                                    <a href="<?php echo SITEURL; ?>admin/delete-admin.php?id=<?php echo $$id; ?>" class="btn-delete">Delete Admin</a>
+                                    <a style="margin-left: 20px;" href="<?php echo SITEURL; ?>admin/delete-admin.php?id=<?php echo $$id; ?>" class="btn-delete">Delete Admin</a>
                                 </td>
                             </tr>
 

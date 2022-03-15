@@ -52,6 +52,9 @@
 
                     ?>
     <div class= "container">
+        <div style="width: 150px; margin-left: 400px;">
+            <img width="100%;" src="images/abdulKalam.jpg" alt="">
+        </div>
         <div class="inside">
             <a id="doctorTitle" class="doctorDb">Doctor name:</a>
             <span><a class="doctorDb"><?php echo $doctor_name ?></a></span>
@@ -88,6 +91,10 @@
             <a id="doctorTitle" class="doctorDb">Room No:</a>
             <span><a class="doctorDb"><?php echo $room_no ?></a></span>
         </div>
+        <div class="btn-box" style="margin-left: 40px; margin-bottom: 10px; background-color: blue; width: 120px; height: 30px;">
+				  
+                  <a style="padding-left: 5px; padding-top: 3px; text-decoration: none; color: white;" href="check.php?doctor_id=<?php echo $doctor_id; ?>" name="submit">Set Appointment</a>
+		</div>
     </div>
     <?php
                     

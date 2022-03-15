@@ -44,20 +44,30 @@
 
           <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
             <ul class="navbar-nav  ml-auto">
-              <li class="nav-item active">
+              <li class="nav-item ">
                 <a class="nav-link" href="index.php">Home </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="catagories.php"> Catagories </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="appointment.php"> Appointment </a>
-              </li>
 			        <li class="nav-item">
-                <a class="nav-link" href="appointment.php"> Search </a>
+                <a class="nav-link" href="#"> Search </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="registerform.php"> Register </a>
+              </li>
+              <li class="nav-item">
+              <?php  
+                              
+                              if(isset($_SESSION['email_name']))
+                              {
+                                echo "<a class='nav-link scrollto' href='logout.php'>log Out</a>";
+                              }
+                              else
+                              {
+                                echo  "<a class='nav-link scrollto'  href='login.php'>log In</a>";
+                              }
+                            ?>
               </li>
             </ul>
             

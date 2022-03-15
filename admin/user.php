@@ -46,12 +46,12 @@
 
                             ?>
                             <tr>
-                                <td><?php echo $user_id; ?>. </td>
-                                <td><?php echo $full_name; ?></td>
-                                <td><?php echo $address; ?></td>
-                                <td><?php echo $phone_no; ?></td>
-                                <td><?php echo $age; ?></td>
-                                <td><?php echo $gender; ?></td>
+                                <td style="width: 80px;text-align: center;"><?php echo $user_id; ?>. </td>
+                                <td style="width: 140px;text-align: center;"><?php echo $full_name; ?></td>
+                                <td style="width: 160px;text-align: center;"><?php echo $address; ?></td>
+                                <td style="width: 140px;text-align: center;"><?php echo $phone_no; ?></td>
+                                <td style="width: 140px;text-align: center;"><?php echo $age; ?></td>
+                                <td style="width: 140px;text-align: center;"><?php echo $gender; ?></td>
 
                             </tr>
 

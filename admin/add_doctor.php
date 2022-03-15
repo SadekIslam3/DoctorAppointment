@@ -25,6 +25,12 @@
                     </td>
                 </tr>
                 <tr>
+                    <td>Doctor Image: </td>
+                    <td>
+                        <input type="file" name="image">
+                    </td>
+                </tr>
+                <tr>
                 
                 <tr>
                     <td>Department Name: </td>
@@ -131,6 +137,51 @@
                 
                 //1. Get the DAta from Form
                 $doctor_name = $_POST['doctor_name'];
+
+                if(isset($_FILES['image']['name']))
+                {
+                    //Upload the Image
+                    //To upload image we need image name, source path and destination path
+                    $image_name = $_FILES['image']['name'];
+                    
+                    // Upload the Image only if image is selected
+                    if($image_name != "")
+                    {
+
+                        //Auto Rename our Image
+                        //Get the Extension of our image (jpg, png, gif, etc) e.g. "specialfood1.jpg"
+                        $ext = end(explode('.', $image_name));
+
+                        //Rename the Image
+                        $image_name = "doctor_".rand(000, 999).'.'.$ext; // e.g. Category_934.jpg
+                        
+
+                        $source_path = $_FILES['image']['tmp_name'];
+
+                        $destination_path = "../images/doctor/".$image_name;
+
+                        //Finally Upload the Image
+                        $upload = move_uploaded_file($source_path, $destination_path);
+
+                        //Check whether the image is uploaded or not
+                        //And if the image is not uploaded then we will stop the process and redirect with error message
+                        if($upload==false)
+                        {
+                            //SEt message
+                            $_SESSION['upload'] = "<div class='error'>Failed to Upload Image. </div>";
+                            //Redirect to Add CAtegory Page
+                            header('location:'.SITEURL.'admin/add_doctor.php');
+                            //Stop the Process
+                            die();
+                        }
+
+                    }
+                }
+                else
+                {
+                    //Don't Upload Image and set the image_name value as blank
+                    $image_name="";
+                }
                 $category = $_POST['category'];
                 $degree = $_POST['degree'];
                 $chamber_name = $_POST['chamber_name'];
@@ -146,6 +197,7 @@
                 // For Numerical we do not need to pass value inside quotes '' But for string value it is compulsory to add quotes ''
                 $sql2 = "INSERT INTO doctors SET 
                     doctor_name = '$doctor_name',
+                    image_name = '$image_name',
                     catagory_id = '$category',
                     degree = '$degree',
                     chamber_name = '$chamber_name',

@@ -67,18 +67,18 @@
 
                             ?>
                             <tr>
-                                <td><?php echo  $doctor_id; ?>. </td>
-                                <td><?php echo $doctor_name; ?></td>
-                                <td><?php echo $catagory_id; ?></td>
-                                <td><?php echo $degree; ?></td>
-                                <td><?php echo $chamder_name; ?></td>
-                                <td><?php echo $designation; ?></td>
-                                <td><?php echo $day; ?></td>
-                                <td><?php echo $time_schedule; ?></td>
-                                <td><?php echo $floor_no; ?></td>
-                                <td><?php echo $room_no; ?></td>
+                                <td style="width: 80px;text-align: center;"><?php echo  $doctor_id; ?>. </td>
+                                <td style="width: 200px;text-align: center;"><?php echo $doctor_name; ?></td>
+                                <td style="width: 140px;text-align: center;"><?php echo $catagory_id; ?></td>
+                                <td style="width: 240px;text-align: center;"><?php echo $degree; ?></td>
+                                <td style="width: 120px;text-align: center;"><?php echo $chamder_name; ?></td>
+                                <td style="width: 140px;text-align: center;"><?php echo $designation; ?></td>
+                                <td style="width: 260px;text-align: center;"><?php echo $day; ?></td>
+                                <td style="width: 140px;text-align: center;"><?php echo $time_schedule; ?></td>
+                                <td style="width: 120px;text-align: center;"><?php echo $floor_no; ?></td>
+                                <td style="width: 140px;text-align: center;"><?php echo $room_no; ?></td>
 
-                                <td>
+                                <td style="width: 280px; padding-left: 40px; padding-top: 10px;">
                                     <a href="<?php echo SITEURL; ?>admin/update-doctor.php?id=<?php echo $doctor_id; ?>" class="btn-update">Update Doctor</a>
                                     <a href="<?php echo SITEURL; ?>admin/delete-doctor.php?id=<?php echo $$doctor_id; ?>" class="btn-delete">Delete Doctor</a>
                                 </td>

@@ -122,11 +122,8 @@
               <li class="nav-item">
                 <a class="nav-link" href="catagories.php"> Catagories </a>
               </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="appointment.php"> Appointment </a>
-              </li>
 			        <li class="nav-item">
-                <a class="nav-link" href="appointment.php"> Search </a>
+                <a class="nav-link" href="#"> Search </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="appointment.php"> Register </a>
@@ -146,7 +143,6 @@
   <div class="container">
       <div class="heading_container heading_center">
         <h2>
-          <span class="design_dot"></span>
           Registeration Section
         </h2>
       </div>
@@ -224,9 +220,6 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="doctorinfo.php"> Doctor </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="appointment.php"> Appointment </a>
               </li>
             </ul>
           </div>

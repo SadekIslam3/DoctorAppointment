@@ -39,7 +39,7 @@
       
         
         <div class=" mx-auto">
-          <div class="box">
+          <div class="box"> 
           <?php  
                                         //Chcek whether image name is available or not
                                         if($image_name!="")
@@ -76,6 +76,7 @@
                 ?>
           </div>
         </div>
+  
 		    
 		  
 		

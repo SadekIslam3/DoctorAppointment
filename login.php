@@ -63,7 +63,7 @@
             $_SESSION['email_name'] = $email_name; //TO check whether the user is logged in or not and logout will unset it
 
             //Redirect to HOme Page/Dashboard
-            echo "<script> window.open('index.php','_self')</script>";
+            echo "<script> window.open('appointment.php','_self')</script>";
         }
         else
         {

@@ -1,4 +1,9 @@
-<?php include('data_con/database.php'); ?>
+<?php 
+$con = mysqli_connect('localhost', 'root', '') or die(mysqli_error()); 
+//selecting database
+$db_select = mysqli_select_db($con, 'doctor-appointment') or die(mysqli_error());
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -44,21 +49,6 @@
 
           <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
             <ul class="navbar-nav  ml-auto">
-              <li class="nav-item ">
-                <a class="nav-link" href="index.php">Home </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="catagories.php"> Catagories </a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="appointment.php"> Appointment </a>
-              </li>
-			        <li class="nav-item">
-                <a class="nav-link" href="appointment.php"> Search </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="registerform.php"> Register </a>
-              </li>
             </ul>
             
           </div>
@@ -69,6 +59,8 @@
   </div>
 
    <!-- book section -->
+   
+
 
   <section class="book_section layout_padding">
   <div class="container">
@@ -78,10 +70,54 @@
         </h2>
       </div>
     </div>
+    <?php 
+    //CHeck whether id is set or not 
+    if(isset($_GET['doctor_id']))
+    {
+        //Get all the details
+        $id = $_GET['doctor_id'];
+
+        //SQL Query to Get the Selected Food
+        $sql2 = "SELECT * FROM doctors WHERE doctor_id=$id";
+        //execute the Query
+        $res2 = mysqli_query($con, $sql2);
+
+        //Get the value based on query executed
+        $row2 = mysqli_fetch_array($res2);
+
+        //Get the Individual Values of Selected Food
+        $doctor_name = $row2['doctor_name'];
+        $catagory_id = $row2['catagory_id'];
+
+        $sql3 = "SELECT * FROM category WHERE category_id=$catagory_id";
+        $res3 = mysqli_query($con, $sql3);
+        $row3 = mysqli_fetch_array($res3);
+        $catagory_name = $row3['category_name'];
+
+        $users=$_SESSION['email_name'];
+        //echo $user;
+        $sql9 = "SELECT * FROM user WHERE email_name='$users'";
+        
+        $res9 = mysqli_query($con, $sql9);
+        
+        $row9 = mysqli_fetch_array($res9);
+        
+        $user_id = $row9['user_id'];
+        $full_name = $row9['full_name'];
+        $address = $row9['address'];
+        $phone_no = $row9['phone_no'];
+        $gender = $row9['gender'];
+        }
+    else
+    {
+        //Redirect to Manage Food
+        //header('location:'.SITEURL.'catagories.php');
+    }
+?>
     <div class="container">
       <div class="row">
         <div class="col">
-          <form>
+          <form action = "" method="POST">
             <h4>
               <span class="design_dot"></span>
               APPOINTMENT SET
@@ -89,29 +125,23 @@
 			  <div class="form-row ">
 				  <div class="form-group col-lg-4">
 					<label for="inputSymptoms">Symptoms</label>
-					<input type="text" class="form-control" id="inputSymptoms" placeholder="">
+					<input type="text" name="symptoms" class="form-control" id="inputSymptoms" placeholder="">
 				  </div>
 				  <div class="form-group col-lg-4">
 					<label for="inputDoctorName">Doctor's Name</label>
-					<input type="text" class="form-control" id="inputDoctorName" placeholder="">
+					<p type="text" name="doctor_name" class="form-control" id="inputDoctorName" placeholder=""><?php echo $doctor_name ?></p>
 				  </div>
 			  </div>
 			  <div class="form-row ">
 				  <div class="form-group col-lg-4">
-					<label for="inputDepartmentName">Department's Name</label>
-					<select name="" class="form-control wide" id="inputDepartmentName">
-					  <option value="Normal distribution ">Cardiology </option>
-					   <option value="Normal distribution ">Medecine </option>
-						<option value="Normal distribution ">Diagnosis </option>
-					  <option value="Normal distribution ">Surgery </option>
-					  <option value="Normal distribution ">First Aid </option>
-					  <option value="Normal distribution "> Therapy </option>
-					</select>
+					<label for="inputDepartmentName">Department's Name</label><br>
+          <p type="text" name = "catagory_name"class="form-control" id="inputDepartName" placeholder=""><?php echo $catagory_name ?></p>
+					
 				  </div>
 				  <div class="form-group col-lg-4">
 					<label for="inputDate">Choose Date </label>
 					<div class="input-group date" id="inputDate" data-date-format="mm-dd-yyyy">
-					  <input type="text" class="form-control" readonly>
+					  <input type="text" name="date" class="form-control" readonly>
 					  <span class="input-group-addon date_icon">
 						<i class="fa fa-calendar" aria-hidden="true"></i>
 					  </span>
@@ -120,13 +150,52 @@
           </div>
         <div class="form-row ">
 				<div class="btn-box">
-				  <button type="submit" class="btn ">Submit Now</button>
+				  <button type="submit" name="submit" class="btn ">Submit Now</button>
 				</div>
         <div class="btn-box" style="margin-left: 10px;">
 				  <button type="submit" class="btn ">View Now</button>
 				</div>
         </div>
-          </form>
+        </form>
+        <?php 
+
+          //CHeck whether the button is clicked or not
+          if(isset($_POST['submit']))
+          {
+              //Add the Food in Database
+              //echo "Clicked";
+              
+              //1. Get the DAta from Form
+              $symptoms = $_POST['symptoms'];
+              $date = $_POST['date'];
+              //$doctor_name=$_POST['doctor_name'];
+              //$catagory_name=$_POST['catagory_name'];
+              
+              $sql6="INSERT INTO `patient_appointment`( `patient_name`, `patient_address`, `phone_no`, `gender`, `symptom`, `doctor_name`, `depart_name`, `date`)
+               VALUES ('$full_name','$address','$phone_no','$gender','$symptoms','$doctor_name','$catagory_name','$date' )";
+
+              $res6 = mysqli_query($con, $sql6);
+
+                //CHeck whether data inserted or not
+                //4. Redirect with MEssage to Manage Food page
+                if($res6==true)
+                {
+                    //Data inserted Successfullly
+                    $_SESSION['add'] = "<div class='success'>Added Successfully.</div>";
+                    
+                    echo"<script> window.open('index.php','_self')</script>";
+                    
+                }
+                else
+                {
+                    //FAiled to Insert Data
+                    $_SESSION['add'] = "<div class='error'>Failed to Add .</div>";
+                    header('location:'.SITEURL.'index.php');
+                }
+                
+            }
+
+        ?>
         </div>
       </div>
     </div>
@@ -140,38 +209,13 @@
       <div class="row">
         <div class="col-md-3">
           <div class="info_menu">
-            <h5>
-              QUICK LINKS
-            </h5>
             <ul class="navbar-nav  ">
-              <li class="nav-item ">
-                <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="catagories.php"> Catagories </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="appointment.php"> Appointment </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="appointment.php"> Search </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="registerform.php"> Register </a>
-              </li>
             </ul>
           </div>
         </div>
         <div class="col-md-3">
           <div class="info_course">
-            <h5>
-              Doctor Appointment System
-            </h5>
-            <p>
-              There are many variations of passages of Lorem Ipsum available,
-              but the majority have suffered alteration in some form, by
-              injected humou
-            </p>
+            
           </div>
         </div>
 
@@ -184,10 +228,6 @@
   <!-- footer section -->
   <footer class="container-fluid footer_section">
     <div class="container">
-      <p>
-        &copy; <span id="displayYear"></span> All Rights Reserved By
-        <a href="https://html.design/">Free Html Templates</a>
-      </p>
     </div>
   </footer>
   <!-- footer section -->

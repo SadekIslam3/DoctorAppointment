@@ -29,9 +29,9 @@
             <ul>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="doctor_list.php">Doctor</a></li>
-                <li><a href="#">Patient</a></li>
-                <li><a href="#">Appointment</a></li>               
-                <li><a href="logout.php">Log Out</a></li>
+                <li><a href="patient.php">Patient</a></li>
+                <li><a href="appointment_set.php">Appointment</a></li>               
+                <li><a href="#">Log Out</a></li>
                     
             </ul>
          </div>

@@ -29,7 +29,7 @@
             <tr>
                 <th>ID</th>
                 <th>Category Name</th>
-                <th>Image</th>
+                <th style="padding-bottom: 15px;">Image</th>
                 <th>Update/delete</th>
             </tr>
             <?php 
@@ -56,10 +56,10 @@
 
                             ?>
                             <tr>
-                                <td><?php echo $category_id; ?>. </td>
-                                <td><?php echo $category_name; ?></td>
+                                <td style="width: 40px; text-align: center;"><?php echo $category_id; ?>. </td>
+                                <td style="width: 120px; text-align: center;"><?php echo $category_name; ?></td>
 
-                                <td>
+                                <td style="width: 130px; padding-left: 240px;">
 
                                     <?php  
                                         //Chcek whether image name is available or not
@@ -69,6 +69,8 @@
                                             ?>
                                                     
                                             <img src="<?php echo SITEURL; ?>images/catagory/<?php echo $image_name; ?>" width="100px" >
+                                            <br>
+                                            <br>
                                                     
                                             <?php
                                         }
@@ -81,7 +83,7 @@
 
                                 </td>
 
-                                <td>
+                                <td style="width: 160px; padding-left: 60px;">
                                     <a href="<?php echo SITEURL; ?>admin/update-catagory.php?id=<?php echo $catagory_id; ?>" class="btn-update">Update Category</a>
                                     <a href="<?php echo SITEURL; ?>admin/delete-catagory.php?id=<?php echo $catagory_id; ?>&image_name=<?php echo $image_name; ?>" class="btn-delete">Delete Category</a>
                                 </td>
