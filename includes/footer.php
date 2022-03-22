@@ -15,25 +15,25 @@
                 <a class="nav-link" href="catagories.php"> catagories </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="appointment.php"> Search </a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="registerform.php"> Register </a>
+              </li>
+              <?php  
+                              
+                              if(isset($_SESSION['email_name']))
+                              {
+                                echo "<a class='nav-link scrollto' href='logout.php'>log Out</a>";
+                              }
+                              else
+                              {
+                                echo  "<a class='nav-link scrollto'  href='login.php'>log In</a>";
+                              }
+                            ?>
               </li>
             </ul>
           </div>
         </div>
         <div class="col-md-3">
-          <div class="info_course">
-            <h5>
-              Thrine Hospital
-            </h5>
-            <p>
-              There are many variations of passages of Lorem Ipsum available,
-              but the majority have suffered alteration in some form, by
-              injected humou
-            </p>
-          </div>
+        
         </div>
 
         
@@ -46,8 +46,7 @@
 <footer class="container-fluid footer_section">
     <div class="container">
       <p>
-        &copy; <span id="displayYear"></span> All Rights Reserved By
-        <a href="https://html.design/">Free Html Templates</a>
+          Doctor Appointment System(Online Platform)
       </p>
     </div>
   </footer>

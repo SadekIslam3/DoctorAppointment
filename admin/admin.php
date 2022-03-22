@@ -56,8 +56,8 @@
                                 <td style="width: 150px; text-align: center;"><?php echo $password; ?></td>
 
                                 <td style="width: 300px; padding-left: 80px; padding-top: 10px;">
-                                    <a href="<?php echo SITEURL; ?>admin/update-admin.php?id=<?php echo $id; ?>" class="btn-update">Update Admin</a>
-                                    <a style="margin-left: 20px;" href="<?php echo SITEURL; ?>admin/delete-admin.php?id=<?php echo $$id; ?>" class="btn-delete">Delete Admin</a>
+                                    <a href="<?php echo SITEURL; ?>admin/admin_update.php?id=<?php echo $id; ?>" class="btn-update">Update Admin</a>
+                                    <a style="margin-left: 20px;" href="<?php echo SITEURL; ?>admin/admin_delete.php?id=<?php echo $id; ?>" class="btn-delete">Delete Admin</a>
                                 </td>
                             </tr>
 

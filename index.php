@@ -31,18 +31,23 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="detail-box">
+                  <div class="img-box">
+                    <img src="images/istockphoto.jpg" alt="">
+                  </div>
+                    
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="detail-box">
                     <div>
                       <h1>
                         Doctor Appointment System
                       </h1>
-                      
+                   
                     </div>
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <div class="img-box">
-                    <img src="images/backround.jpg" alt="">
-                  </div>
+                  
                 </div>
               </div>
             </div>
@@ -62,63 +67,19 @@
                 </div>
                 <div class="col-md-6">
                   <div class="img-box">
-                    <img src="images/backround.jpg" alt="">
+                    <img src="images/about-img.png" alt="">
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <!-- <ol class="carousel-indicators" style="margin-top: 30px;">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol> -->
       </div>
-      <!-- <div id="carouselExampleIndicators" class="carousel slide mx-auto" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-  <div class="carousel-item active">
-    <img src="images/backround.jpg" alt="...">
-    <div class="carousel-caption d-none d-md-block">
-      <h5>Sadek</h5>
-      <p>...</p>
-    </div>
- </div>
- <div class="carousel-item">
-  <img src="images/backround.jpg" alt="...">
-  <div class="carousel-caption d-none d-md-block">
-    <h5>...</h5>
-    <p>...</p>
-  </div>
-</div>
-<div class="carousel-item">
-  <img src="images/backround.jpg" alt="...">
-  <div class="carousel-caption d-none d-md-block">
-    <h5>...</h5>
-    <p>...</p>
-  </div>
-</div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-    </section>
-    <!-- end slider section -->
+  <!-- end slider section -->
   </div>
   <!-- catagories section -->
 
-  <section class="service_section layout_padding-bottom">
+  <!--<section class="service_section layout_padding-bottom">
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
@@ -133,7 +94,7 @@
         <div class="col-md-4 mx-auto">
           <div class="box">
             <img src="images/Cardiology.png" alt="" />
-            <a href="#">
+            <a href="doctor.php">
               Cardiology
             </a>
           </div>
@@ -238,7 +199,7 @@
 	   
     
     </div>
-  </section>
+  </section>--> 
 
   <!-- end catagories section -->
 

@@ -1,4 +1,5 @@
 <?php 
+
 $con = mysqli_connect('localhost', 'root', '') or die(mysqli_error()); 
 //selecting database
 $db_select = mysqli_select_db($con, 'doctor-appointment') or die(mysqli_error());
@@ -72,6 +73,7 @@ $db_select = mysqli_select_db($con, 'doctor-appointment') or die(mysqli_error())
     </div>
     <?php 
     //CHeck whether id is set or not 
+        
     if(isset($_GET['doctor_id']))
     {
         //Get all the details
@@ -93,9 +95,7 @@ $db_select = mysqli_select_db($con, 'doctor-appointment') or die(mysqli_error())
         $res3 = mysqli_query($con, $sql3);
         $row3 = mysqli_fetch_array($res3);
         $catagory_name = $row3['category_name'];
-
         $users=$_SESSION['email_name'];
-        //echo $user;
         $sql9 = "SELECT * FROM user WHERE email_name='$users'";
         
         $res9 = mysqli_query($con, $sql9);
@@ -107,6 +107,7 @@ $db_select = mysqli_select_db($con, 'doctor-appointment') or die(mysqli_error())
         $address = $row9['address'];
         $phone_no = $row9['phone_no'];
         $gender = $row9['gender'];
+        
         }
     else
     {
@@ -129,13 +130,13 @@ $db_select = mysqli_select_db($con, 'doctor-appointment') or die(mysqli_error())
 				  </div>
 				  <div class="form-group col-lg-4">
 					<label for="inputDoctorName">Doctor's Name</label>
-					<p type="text" name="doctor_name" class="form-control" id="inputDoctorName" placeholder=""><?php echo $doctor_name ?></p>
+					<p type="text" name="doctor_name" class="form-control" id="inputDoctorName" placeholder=""><?php echo $doctor_name; ?></p>
 				  </div>
 			  </div>
 			  <div class="form-row ">
 				  <div class="form-group col-lg-4">
 					<label for="inputDepartmentName">Department's Name</label><br>
-          <p type="text" name = "catagory_name"class="form-control" id="inputDepartName" placeholder=""><?php echo $catagory_name ?></p>
+          <p type="text" name = "catagory_name"class="form-control" id="inputDepartName" placeholder=""><?php echo $catagory_name; ?></p>
 					
 				  </div>
 				  <div class="form-group col-lg-4">
@@ -153,7 +154,7 @@ $db_select = mysqli_select_db($con, 'doctor-appointment') or die(mysqli_error())
 				  <button type="submit" name="submit" class="btn ">Submit Now</button>
 				</div>
         <div class="btn-box" style="margin-left: 10px;">
-				  <button type="submit" class="btn ">View Now</button>
+        <button type="submit" name="submit" class="btn "><a style="padding-left: 5px; padding-top: 10px; text-decoration: none; color: white;" href="appointment_view.php">View Now</a></button>
 				</div>
         </div>
         </form>
@@ -209,14 +210,36 @@ $db_select = mysqli_select_db($con, 'doctor-appointment') or die(mysqli_error())
       <div class="row">
         <div class="col-md-3">
           <div class="info_menu">
+            <h5>
+              QUICK LINKS
+            </h5>
             <ul class="navbar-nav  ">
+              <li class="nav-item ">
+                <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="catagories.php"> Catagories </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="doctorinfo.php"> Register </a>
+              </li>
+              <?php  
+                              
+                              if(isset($_SESSION['email_name']))
+                              {
+                                echo "<a class='nav-link scrollto' href='logout.php'>log Out</a>";
+                              }
+                              else
+                              {
+                                echo  "<a class='nav-link scrollto'  href='login.php'>log In</a>";
+                              }
+                            ?>
+              </li>
             </ul>
           </div>
         </div>
         <div class="col-md-3">
-          <div class="info_course">
-            
-          </div>
+
         </div>
 
       </div>

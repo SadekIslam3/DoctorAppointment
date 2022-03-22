@@ -59,7 +59,7 @@
 
                     <h1><?php echo $count3; ?></h1>
                     <br />
-                    Users  
+                    Patients  
                 </div>
 
                 <div class="colo-4 text-center">

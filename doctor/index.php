@@ -34,7 +34,7 @@
 
                     <?php 
                         //Sql Query 
-                        $sql2 = "SELECT * FROM doctors";
+                        $sql2 = "SELECT * FROM doctorpanel";
                         //Execute Query
                         $res2 = mysqli_query($con, $sql2);
                         //Count Rows
@@ -50,7 +50,7 @@
 
                     <?php 
                         //Sql Query 
-                        $sql3 = "SELECT * FROM user";
+                        $sql3 = "SELECT * FROM appointment_store";
                         //Execute Query
                         $res3 = mysqli_query($con, $sql3);
                         //Count Rows
@@ -59,7 +59,7 @@
 
                     <h1><?php echo $count3; ?></h1>
                     <br />
-                    Patients 
+                    Store Appointments
                 </div>
 
                 <div class="clearfix"></div>

@@ -42,9 +42,9 @@
                                 <td style="width: 140px;text-align: center;"><?php echo $symptom; ?></td>
                                 <td style="width: 260px;text-align: center;"><?php echo $date; ?></td>
 
-                                <td style="width: 280px; padding-left: 40px; padding-top: 10px;">
-                                    <a href="<?php echo SITEURL; ?>admin/update-doctor.php?id=<?php echo $doctor_id; ?>" class="btn-update">Update Doctor</a>
-                                    <a href="<?php echo SITEURL; ?>admin/delete-doctor.php?id=<?php echo $$doctor_id; ?>" class="btn-delete">Delete Doctor</a>
+                                <td style="width: 280px; padding-left: 80px; padding-top: 10px;">
+                                    <a href="<?php echo SITEURL; ?>doctor/patient_appointment_update.php?appointment_id=<?php echo $appointment_id; ?>" class="btn-update">Update</a>
+                                    <a href="<?php echo SITEURL; ?>admin/delete-doctor.php?id=<?php echo $$doctor_id; ?>" class="btn-delete">Delete</a>
                                 </td>
                             </tr>
 

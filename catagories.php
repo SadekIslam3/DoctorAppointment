@@ -75,6 +75,12 @@
                     
                 ?>
           </div>
+          </div>
+
+
+
+
+
         </div>
   
 		    
@@ -82,8 +88,25 @@
 		
   </section>
 
-  <!-- end catagories section -->
+<!--<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="images/Dental.png">
 
-  
+      </div>
 
-  <?php include('includes/footer.php'); ?>
+
+  </div>
+
+
+
+
+  </div>
+
+
+
+</section>-->
+<!-- end catagories section -->
+
+<?php include('includes/footer.php'); ?>

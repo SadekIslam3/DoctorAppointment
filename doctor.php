@@ -42,6 +42,7 @@
                   while($row2 = mysqli_fetch_assoc($res2)){
                     $doctor_id = $row2['doctor_id'];
                     $doctor_name = $row2['doctor_name'];
+                    $image_name = $row2['image_name'];
                     $degree = $row2['degree'];
                     $chamber_name = $row2['chamber_name'];
                     $designation = $row2['designation'];
@@ -53,7 +54,18 @@
                     ?>
     <div class= "container">
         <div style="width: 150px; margin-left: 400px;">
-            <img width="100%;" src="images/abdulKalam.jpg" alt="">
+        <?php
+                        //check image
+                        if($image_name==""){
+                          echo "not available";
+                        }
+                        else{
+                          //available
+                          ?>
+            <img width="100%;" src="<?php echo SITEURL; ?>images/doctor/<?php echo $image_name ?>" alt="">
+            <?php
+                        }
+                      ?>
         </div>
         <div class="inside">
             <a id="doctorTitle" class="doctorDb">Doctor name:</a>

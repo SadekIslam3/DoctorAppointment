@@ -1,5 +1,6 @@
+<?php include('data_con/database.php') ?>
 <head>
-    <?php include('data_con/database.php'); ?>
+    
 
     <link rel="stylesheet" href="css-backend/style1.css">
 </head>
@@ -63,14 +64,14 @@
             $_SESSION['email_name'] = $email_name; //TO check whether the user is logged in or not and logout will unset it
 
             //Redirect to HOme Page/Dashboard
-            echo "<script> window.open('appointment.php','_self')</script>";
+            echo "<script> window.open('catagories.php','_self')</script>";
         }
         else
         {
             //User not Available and Login FAil
             $_SESSION['login'] = "<div class='error text-center'>Username or Password did not match.</div>";
             //Redirect to HOme Page/Dashboard
-            echo "<script> window.open('index.php','_self')</script>";
+            echo "<script> window.open('login.php','_self')</script>";
         }
 
 

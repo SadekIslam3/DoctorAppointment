@@ -4,8 +4,11 @@
         <h1>Doctor Dashboard</h1>
         <br>
         <br> 
-        
-        <form action="patient_search.php" method="POST">
+        <a href="appointment_set.php" class="btn-add">Appointment Store</a>
+        <br>
+        <br>
+        <br>
+        <form action="appointment_search.php" method="POST">
             <table class="table-30">
 
                 <tr>
@@ -14,11 +17,8 @@
                         <input type="text" name="search" placeholder="Search here">
                     </td>
                 </tr>
-                
-
                 <tr>
                     <td colspan="2">
-                        <br>
                         <br>
                         <input type="submit" name="submit" value="Search" class="btn-update">
                     </td>

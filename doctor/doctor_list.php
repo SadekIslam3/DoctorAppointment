@@ -15,8 +15,7 @@
                     <th>Doctor ID</th>
                     <th>Doctor Name</th>
                     <th>Department Name</th>
-                    <th>Username</th>
-                    <th>Password</th>
+                    <th>User Name</th>
                     <th>update/delete</th>
                 </tr>
                 
@@ -42,19 +41,17 @@
                             $doctor_name = $row['doctor_name'];
                             $depart_name = $row['depart_name'];
                             $user_name = $row['user_name'];
-                            $password = $row['password'];
 
                             ?>
                             <tr>
-                                <td><?php echo  $doctor_id; ?>. </td>
-                                <td><?php echo $doctor_name; ?></td>
-                                <td><?php echo $depart_name; ?></td>
-                                <td><?php echo $user_name; ?></td>
-                                <td><?php echo $password; ?></td>
+                                <td style="width: 80px;text-align: center;"><?php echo  $doctor_id; ?>. </td>
+                                <td style="width: 140px;text-align: center;"><?php echo $doctor_name; ?></td>
+                                <td style="width: 160px;text-align: center;"><?php echo $depart_name; ?></td>
+                                <td style="width: 160px;text-align: center;"><?php echo $user_name; ?></td>
 
-                                <td>
-                                    <a href="<?php echo SITEURL; ?>admin/update-admin.php?id=<?php echo $id; ?>" class="btn-update">Update Admin</a>
-                                    <a href="<?php echo SITEURL; ?>admin/delete-admin.php?id=<?php echo $$id; ?>" class="btn-delete">Delete Admin</a>
+                                <td style="width: 300px; padding-left: 240px; padding-top: 10px;">
+                                    <a href="<?php echo SITEURL; ?>doctor/doctor_list_update.php?doctor_id=<?php echo $doctor_id; ?>" class="btn-update">Update</a>
+                                    <a href="<?php echo SITEURL; ?>doctor/doctor_delete.php?doctor_id=<?php echo $doctor_id; ?>" class="btn-delete">Delete</a>
                                 </td>
                             </tr>
 

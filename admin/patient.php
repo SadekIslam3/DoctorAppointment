@@ -5,17 +5,19 @@
         <h1>Patient Info</h1>
         <br>
         <br>
-        <a href="" class="btn-add">Update/Delete</a>
+        <!--<a href="add_patient.php" class="btn-add">Add Patient</a>-->
+        <br>
         <br>
         <br>
         <table class="tbl-full">
             <tr>
-                <th>User ID</th>
-                <th>User Name</th>
-                <th>User Address</th>
+                <th>ID</th>
+                <th>Patient Name</th>
+                <th>Patient Address</th>
                 <th>Phone No</th>
                 <th>Age</th>
                 <th>Gender</th>
+                <th>Delate</th>
                
             </tr>
 
@@ -52,6 +54,11 @@
                                 <td style="width: 140px;text-align: center;"><?php echo $phone_no; ?></td>
                                 <td style="width: 140px;text-align: center;"><?php echo $age; ?></td>
                                 <td style="width: 140px;text-align: center;"><?php echo $gender; ?></td>
+
+                                <td style="width: 300px; padding-left: 140px; padding-top: 10px;">
+                                    <!--<a href="<?php echo SITEURL; ?>admin/patient_update.php?user_id=<?php echo $user_id; ?>" class="btn-update">Update Patient</a>-->
+                                    <a style="margin-left: 20px;" href="<?php echo SITEURL; ?>admin/patient_delete.php?user_id=<?php echo $user_id; ?>" class="btn-delete">Delete Patient</a>
+                                </td>
 
                             </tr>
 

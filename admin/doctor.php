@@ -18,6 +18,7 @@
                 unset($_SESSION['upload']);
             }
         ?>
+        <br>
         <a href="add_doctor.php" class="btn-add">Add Doctor</a>
         <br>
         <br>
@@ -25,6 +26,7 @@
             <tr>
                 <th>ID</th>
                 <th>Doctor Name</th>
+                <th>Image Name</th>
                 <th>Category ID</th>
                 <th>Degree</th>
                 <th>Chamber</th>
@@ -56,6 +58,7 @@
                         {
                             $doctor_id = $row['doctor_id'];
                             $doctor_name = $row['doctor_name'];
+                            $image_name = $row['image_name'];
                             $catagory_id = $row['catagory_id'];
                             $degree = $row['degree'];
                             $chamder_name = $row['chamber_name'];
@@ -67,20 +70,43 @@
 
                             ?>
                             <tr>
-                                <td style="width: 80px;text-align: center;"><?php echo  $doctor_id; ?>. </td>
-                                <td style="width: 200px;text-align: center;"><?php echo $doctor_name; ?></td>
-                                <td style="width: 140px;text-align: center;"><?php echo $catagory_id; ?></td>
-                                <td style="width: 240px;text-align: center;"><?php echo $degree; ?></td>
-                                <td style="width: 120px;text-align: center;"><?php echo $chamder_name; ?></td>
-                                <td style="width: 140px;text-align: center;"><?php echo $designation; ?></td>
-                                <td style="width: 260px;text-align: center;"><?php echo $day; ?></td>
-                                <td style="width: 140px;text-align: center;"><?php echo $time_schedule; ?></td>
-                                <td style="width: 120px;text-align: center;"><?php echo $floor_no; ?></td>
-                                <td style="width: 140px;text-align: center;"><?php echo $room_no; ?></td>
+                                <td style="width: 20px; text-align: center;"><?php echo  $doctor_id; ?>. </td>
+                                <td style="width: 160px; text-align: center;"><?php echo $doctor_name; ?></td>
+                                <td>
 
-                                <td style="width: 280px; padding-left: 40px; padding-top: 10px;">
-                                    <a href="<?php echo SITEURL; ?>admin/update-doctor.php?id=<?php echo $doctor_id; ?>" class="btn-update">Update Doctor</a>
-                                    <a href="<?php echo SITEURL; ?>admin/delete-doctor.php?id=<?php echo $$doctor_id; ?>" class="btn-delete">Delete Doctor</a>
+                                    <?php  
+                                        //Chcek whether image name is available or not
+                                        if($image_name!="")
+                                        {
+                                            //Display the Image
+                                            ?>
+                                                    
+                                            <img src="<?php echo SITEURL; ?>images/doctor/<?php echo $image_name; ?>" width="100px" >
+                                            <br>
+                                            <br>
+                                                    
+                                            <?php
+                                        }
+                                        else
+                                        {
+                                            //DIsplay the MEssage
+                                            echo "<div class='error'>Image not Added.</div>";
+                                        }
+                                        ?>
+
+                                </td>
+                                <td style="width: 120px; text-align: center;"><?php echo $catagory_id; ?></td>
+                                <td style="width: 180px; text-align: center;"><?php echo $degree; ?></td>
+                                <td style="width: 80px; text-align: center;"><?php echo $chamder_name; ?></td>
+                                <td style="width: 120px; text-align: center;"><?php echo $designation; ?></td>
+                                <td style="width: 120px; text-align: center;"><?php echo $day; ?></td>
+                                <td style="width: 240px; text-align: center;"><?php echo $time_schedule; ?></td>
+                                <td style="width: 120px; text-align: center;"><?php echo $floor_no; ?></td>
+                                <td style="width: 120px; text-align: center;"><?php echo $room_no; ?></td>
+
+                                <td style="width: 80px; padding-left: 40px;">
+                                    <a href="<?php echo SITEURL; ?>admin/doctor_update.php?doctor_id=<?php echo $doctor_id; ?>" class="btn-update">Update</a>
+                                    <a href="<?php echo SITEURL; ?>admin/doctor_delete.php?doctor_id=<?php echo $doctor_id; ?>&image_name=<?php echo $image_name; ?>" class="btn-delete">Delete</a>
                                 </td>
                             </tr>
 

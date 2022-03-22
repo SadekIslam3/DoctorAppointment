@@ -84,8 +84,8 @@
                                 </td>
 
                                 <td style="width: 160px; padding-left: 60px;">
-                                    <a href="<?php echo SITEURL; ?>admin/update-catagory.php?id=<?php echo $catagory_id; ?>" class="btn-update">Update Category</a>
-                                    <a href="<?php echo SITEURL; ?>admin/delete-catagory.php?id=<?php echo $catagory_id; ?>&image_name=<?php echo $image_name; ?>" class="btn-delete">Delete Category</a>
+                                    <a href="<?php echo SITEURL; ?>admin/catagory_update.php?category_id=<?php echo $category_id; ?>" class="btn-update">Update Category</a>
+                                    <a href="<?php echo SITEURL; ?>admin/catagory_delete.php?category_id=<?php echo $category_id; ?>&image_name=<?php echo $image_name; ?>" class="btn-delete">Delete Category</a>
                                 </td>
                             </tr>
 

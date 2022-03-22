@@ -3,7 +3,7 @@
 <?php
     if(!isset($_SESSION['email_name']))
     {
-        include('login.php');
+        echo"<script> window.open('index.php','_self')</script>";
     }
     else
     {
@@ -11,4 +11,3 @@
 
     }
 ?>
-<?php include('includes/footer.php'); ?>

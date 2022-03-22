@@ -1,75 +1,8 @@
-<?php include('data_con/database.php'); ?>
-<?php
-    if(isset($_POST['submit'])){
-        //data from form
-        $full_name = $_POST['full_name'];
-        $address = $_POST['address'];
-        $phone_no = $_POST['phone_no'];
-        $email_name = $_POST['email_name'];
-        $password = $_POST['password'];
-        $age = $_POST['age'];
-		    $gender = $_POST['gender'];
-
-        
-
-        $errors = array();
-
-        $e = "SELECT email FROM user WHERE email_name = '$email_name' ";
-        $ee = mysqli_query($con, $e);
-        
-
-        if(empty($email_name)){
-            $errors['e']= "email required";
-        }else if(mysqli_num_rows($ee)>0){
-            $errors['e']= "email exits";
-        }
-        if(empty($password)){
-            $errors['p']= "password required";
-        }
-		if(isset($_POST['gender']))
-        {
-            $gender = $_POST['gender'];
-        }
-        else if(isset($_POST['gender']))
-        {
-            $gender = $_POST['female'];
-        }
-		else 
-		{
-			$gender = "other";
-		}
-
-        //sql quary
-        if(count($errors)==0){
-          
-
-            $sql = "INSERT INTO user (`full_name`, `address`, `phone_no`, `email_name`, `password`, `age`,`gender`) 
-            VALUES ('$full_name','$address','$phone_no','$email_name','$password','$age','$gender')";
-            
-
-            $res = mysqli_query($con, $sql);
-
-            //Check whether data is inserted or not
-            if($res==TRUE){
-                    //Data Inserted
-                    //echo "Data Inserted";
-                    //Create a Session Variable to Display Message
-                    $_SESSION['add'] = "<div class='success'>User Added Successfully.</div>";
-                    //Redirect Page to Manage Admin
-                    header("location:".SITEURL.'login.php');
-            }
-            else
-            {
-                //FAiled to Insert DAta
-                //echo "Faile to Insert Data";
-                //Create a Session Variable to Display Message
-                $_SESSION['add'] = "<div class='error'>Failed to Add .</div>";
-                //Redirect Page to Add Admin
-                header("location:".SITEURL.'registerform.php');
-            }
-        }
-    }
-
+<?php include('data_con/database.php'); 
+    if(isset($_SESSION['role']) && $_SESSION['role']!='1'){
+        header("location:".SITEURL.'index.php');
+        die();
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -153,63 +86,151 @@
   <div class="container">
       <div class="heading_container heading_center">
         <h2>
-          Registeration Section
+          Patient Update 
         </h2>
       </div>
     </div>
     <div class="container">
       <div class="row">
         <div class="col">
-          <form action="" method ="POST" >
-            <h4>
-              <span class="design_dot"></span>
-              Registeration Form
-            </h4>
-            <div class="form-row ">
-			        <div class="form-group col-lg-4">
-                <label for="inpuName">Full Name</label>
-                <input type="text" class="form-control" name="full_name" placeholder="" required>
-              </div>
-            <div class="form-group col-lg-4">
-                <label for="inputAddress">Address</label>
-                <input type="text" class="form-control" name="address" placeholder="" required>
-            </div>
-			      <div class="form-group col-lg-4">
-                <label for="inputPhoneNo">Phone no </label>
-                <input type="text" class="form-control" name="phone_no" placeholder="" required>
-            </div>
-			  </div>
-			  <div class="form-row ">
-				  <div class="form-group col-lg-4">
-					<label for="inputEmail">Email</label>
-					<input type="text" class="form-control" name="email_name" placeholder="">
-				  </div>
-				  <div class="form-group col-lg-4">
-					<label for="inputPassword">Password</label>
-					<input type="text" class="form-control" name="password" placeholder="">
-				  </div>
-				  <div class="form-group col-lg-4">
-					<label for="inputAge">Your age</label>
-					<input type="text" class="form-control" name="age" placeholder="" required>
-				  </div>
-			  </div>
-			<div class="form-row ">
-              <p class="gender" style="font-size: 16px; font-weight: 800;">Gender : </p>
-		    <div class="radio_button">
-                <input type="radio" placeholder="Address" name="gender" value="male">Male
-                <input type="radio" placeholder="Address" name="gender" value="female">Female
-                <input type="radio" placeholder="Address" name="gender" value="other">Other
-	        </div>
-        </div>
-        <div class="form-row ">
-            <div class="btn-box">
-				      <button type = "submit" name="submit" class="btn">Register</button>
-			      </div>
-            <div class="btn-box" style="margin-left: 10px;">
-               <button type="submit" name="submit" class="btn "><a style="padding-left: 5px; padding-top: 10px; text-decoration: none; color: white;" href="patient_search.php">Update</a></button>
-				    </div>
-          </div>
-      </form>
+        <?php 
+    
+    //Check whether the id is set or not
+    if(isset($_GET['user_id']))
+    {
+        //Get the ID and all other details
+        //echo "Getting the Data";
+        $user_id = $_GET['user_id'];
+        //Create SQL Query to get all other details
+        $sql = "SELECT * FROM user WHERE user_id=$user_id";
+
+        //Execute the Query
+        $res = mysqli_query($con, $sql);
+
+        //Count the Rows to check whether the id is valid or not
+        $count = mysqli_num_rows($res);
+
+        if($count==1)
+        {
+            //Get all the data
+            $row = mysqli_fetch_assoc($res);
+            $full_name = $row['full_name'];
+            $address = $row['address'];
+            $phone_no = $row['phone_no'];
+            $email_name = $row['email_name'];
+            $password = $row['password'];
+            $age = $row['age'];
+        }
+        else
+        {
+            //redirect to manage category with session message
+            $_SESSION['no-category-found'] = "<div class='error'>Doctor not Found.</div>";
+            header('location:'.SITEURL.'patient_view.php');
+        }
+
+    }
+    else
+    {
+        //redirect to Manage CAtegory
+        header('location:'.SITEURL.'patient_view.php');
+    }
+
+?>
+          <form action="" method="POST" enctype="multipart/form-data">
+
+            <table class="table-30">
+                <tr>
+                    <td>Full Name: </td>
+                    <td>
+                        <input type="text" name="full_name" value="<?php echo $full_name; ?>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Address: </td>
+                    <td>
+                        <input type="text" name="address" value="<?php echo $address; ?>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone No: </td>
+                    <td>
+                        <input type="text" name="phone_no" value="<?php echo $phone_no; ?>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email Name: </td>
+                    <td>
+                        <input type="text" name="email_name" value="<?php echo $email_name; ?>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Password: </td>
+                    <td>
+                        <input type="text" name="password" value="<?php echo $password; ?>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Your Age: </td>
+                    <td>
+                        <input type="text" name="age" value="<?php echo $age; ?>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
+                        <input type="submit" name="submit" value="Update Patient" class="btn-update">
+                    </td>
+                </tr>
+
+            </table>
+
+</form>
+      <?php 
+    
+        if(isset($_POST['submit']))
+        {
+            //echo "Clicked";
+            //1. Get all the values from our form
+            $user_id = $_POST['user_id'];
+            $full_name = $_POST['full_name'];
+            $address = $_POST['address'];
+            $phone_no = $_POST['phone_no'];
+            $email_name = $_POST['email_name'];
+            $password = $_POST['password'];
+            $age = $_POST['age'];
+
+            //3. Update the Database
+            $sql2 = "UPDATE user SET 
+                full_name = '$full_name',
+                address = '$address',
+                phone_no = '$phone_no',
+                email_name = '$email_name',
+                password = '$password',
+                age = '$age'
+                WHERE user_id=$user_id
+            ";
+
+            //Execute the Query
+            $res2 = mysqli_query($con, $sql2);
+
+            //4. REdirect to Manage Category with MEssage
+            //CHeck whether executed or not
+            if($res2==true)
+            {
+                //Category Updated
+                $_SESSION['update'] = "<div class='success'>Patient Updated Successfully.</div>";
+                header('location:'.SITEURL.'patient_search.php');
+            }
+            else
+            {
+                //failed to update category
+                $_SESSION['update'] = "<div class='error'>Failed to Update Doctor.</div>";
+                header('location:'.SITEURL.'patient_update.php');
+            }
+
+        }
+    
+    ?>
         </div>
       </div>
     </div>
@@ -265,7 +286,7 @@
   <footer class="container-fluid footer_section">
     <div class="container">
       <p>
-        Doctor Appointment System(Online Platform)
+        Doctor Appointment System(online Platform)
       </p>
     </div>
   </footer>

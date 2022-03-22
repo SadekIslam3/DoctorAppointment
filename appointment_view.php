@@ -1,39 +1,46 @@
 <?php include('includes/header.php'); ?>
+<style>
+
+.wrapper{
+    padding: 1%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.tbl-full{
+    width: 100%;
+}
+
+.manage{
+    background-color: #f1f2f6;
+    padding: 3% 0;
+}
+</style>
+
+
+
 
 <div class="manage">
     <div class = "wrapper">
         <h1>View Appointment</h1>
         <br>
         <br>
-        <?php
-            if(isset($_SESSION['add']))
-            {
-                echo $_SESSION['add'];
-                unset($_SESSION['add']);
-            }
-
-            if(isset($_SESSION['upload']))
-            {
-                echo $_SESSION['upload'];
-                unset($_SESSION['upload']);
-            }
-        ?>
         <table class="tbl-full">
             <tr>
-                <th>ID</th>
+                <th>ID No</th>
                 <th>Patient Name</th>
                 <th>Patient Address</th>
                 <th>Phone No</th>
                 <th>Gender</th>
-                <th>Symptoms</th>
+                <th>Symptom</th>
                 <th>Doctor Name</th>
                 <th>Department Name</th>
-                <th>Choose Date</th
-               
+                <th>Date</th>
+        
             </tr>
             <?php 
 
-                    //Query to Get all doctors from Database
+                    //Query to Get all patient_appointment from Database
                     $sql = "SELECT * FROM patient_appointment";
 
                     //Execute Query
@@ -61,15 +68,15 @@
 
                             ?>
                             <tr>
-                                <td style="width: 80px;text-align: center;"><?php echo  $appointment_id; ?>. </td>
-                                <td style="width: 200px;text-align: center;"><?php echo $patient_name; ?></td>
-                                <td style="width: 260px;text-align: center;"><?php echo $patient_address; ?></td>
-                                <td style="width: 240px;text-align: center;"><?php echo $phone_no; ?></td>
-                                <td style="width: 120px;text-align: center;"><?php echo $gender; ?></td>
-                                <td style="width: 140px;text-align: center;"><?php echo $symptom; ?></td>
-                                <td style="width: 260px;text-align: center;"><?php echo $doctor_name; ?></td>
-                                <td style="width: 260px;text-align: center;"><?php echo $depart_name; ?></td>
-                                <td style="width: 220px;text-align: center;"><?php echo $date; ?></td>
+                                <td><?php echo  $appointment_id; ?>. </td>
+                                <td><?php echo $patient_name; ?></td>
+                                <td><?php echo $patient_address; ?></td>
+                                <td><?php echo $phone_no; ?></td>
+                                <td><?php echo $gender; ?></td>
+                                <td><?php echo $symptom; ?></td>
+                                <td><?php echo $doctor_name; ?></td>
+                                <td><?php echo $depart_name; ?></td>
+                                <td><?php echo $date; ?></td>
 
                             </tr>
 
@@ -84,7 +91,7 @@
                         ?>
 
                         <tr>
-                            <td colspan="6"><div class="error">No Doctor Added.</div></td>
+                            <td colspan="6"><div class="error">No Appointment Added.</div></td>
                         </tr>
 
                         <?php
@@ -94,5 +101,4 @@
         </table>
     </div>
 </div>
-
 <?php include('includes/footer.php'); ?>

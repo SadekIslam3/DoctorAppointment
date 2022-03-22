@@ -50,9 +50,6 @@
               <li class="nav-item">
                 <a class="nav-link" href="catagories.php"> Catagories </a>
               </li>
-			        <li class="nav-item">
-                <a class="nav-link" href="#"> Search </a>
-              </li>
               <li class="nav-item">
                 <a class="nav-link" href="registerform.php"> Register </a>
               </li>
